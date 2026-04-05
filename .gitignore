@@ -1,0 +1,7 @@
+*.env
+.env.*
+*/tmp/
+*/bin/
+*.exe
+.DS_Store
+*Zone.Identifier
