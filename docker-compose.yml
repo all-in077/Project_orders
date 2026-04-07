@@ -40,6 +40,18 @@ services:
       - postgres_notifications_data:/var/lib/postgresql/data
       - ./init_notifications.sql:/docker-entrypoint-initdb.d/init.sql
 
+  postgres_auth:
+    image: postgres:15
+    ports:
+      - "5434:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: auth_db
+    volumes:
+      - postgres_auth_data:/var/lib/postgresql/data
+      - ./init_auth.sql:/docker-entrypoint-initdb.d/init.sql
 volumes:
   postgres_orders_data:
   postgres_notifications_data:
+  postgres_auth_data:
